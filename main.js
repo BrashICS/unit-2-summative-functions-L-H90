@@ -11,6 +11,7 @@
 /*** Event Listeners ***/
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("rect_prism_volume").addEventListener("click", rect_prism_volume);
 
 /*** Functions ***/
 function delta(a, b) {
@@ -50,7 +51,14 @@ function length(x1, y1, x2, y2) {
     return z
 }
 
-
+function rect_prism_volume() {
+    let length_2 = Number(document.getElementById("length_2").value)
+    let width = Number(document.getElementById("width").value)
+    let hieght = Number(document.getElementById("hieght").value)
+    let answer = (length_2 * width * hieght)
+    document.getElementById("geo_output").textContent=answer
+    return answer
+}
 
 
 
