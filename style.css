@@ -5,7 +5,7 @@
 
 /* Using font-size: larger to make things pop. Feel free to change. */
 body {
-    background-color:lightcyan;
+    background-color:rgb(34, 228, 228);
     margin: 20px;
     font-size: larger;
 }
