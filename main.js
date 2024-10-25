@@ -11,7 +11,7 @@
 /*** Event Listeners ***/
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
-document.getElementById("rect_prism_volume").addEventListener("click", rect_prism_volume);
+document.getElementById("calculate_prism_area").addEventListener("click", rect_prism_volume);
 document.getElementById("sphere_volume").addEventListener("click", sphere_volume);
 document.getElementById("sphere_area").addEventListener("click", sphere_area);
 document.getElementById("slope1").addEventListener("click", slope1);
@@ -46,21 +46,24 @@ function round_user(value) {
     return answer
 }
 
-function length(x1, y1, x2, y2) {
+function length() {
+    let x1 = Number(document.getElementById("x1").value);
+    let y1 = Number(document.getElementById("y1").value);
+    let x2 = Number(document.getElementById("x2").value);
+    let y2 = Number(document.getElementById("y2").value);
     let answer_1 =(delta(x2, x1)) **2 
     let answer_2 =(delta(y2, y1)) **2
-    let x = Math.sqrt(answer_1)
-    let y = Math.sqrt(answer_2)
-    let z = `${x}, ${y}`
-    return z
+    let z = answer_1 + answer_2
+  let x = Math.sqrt(z)
+    return x
 }
 
 
 function rect_prism_volume() {
     let length_2 = Number(document.getElementById("length_2").value)
     let width = Number(document.getElementById("width").value)
-    let hieght = Number(document.getElementById("hieght").value)
-    let answer = (length_2 * width * hieght)
+    let height = Number(document.getElementById("height").value)
+    let answer = (length_2 * width * height)
     document.getElementById("geo_output").textContent=answer
 }
 
@@ -95,8 +98,8 @@ function sphere_volume() {
         let y1 = Number(document.getElementById("y1").value);
         let x2 = Number(document.getElementById("x2").value);
         let y2 = Number(document.getElementById("y2").value);
-        let answer = length(x1, y1, x2, y2);
-        let round = round_user(answer);
+        let answer = length(x1,y1,x2,y2)
+        let round = round_user(answer)
         document.getElementById("answer1").textContent = round; 
     }
     
@@ -148,9 +151,10 @@ function vertex() {
     let a = Number(document.getElementById("a").value);
     let b = Number(document.getElementById("b").value);
     let c = Number(document.getElementById("c").value);
-    let x = Number(document.getElementById("x").value);
-    let x1 = y_quad(a, b); 
-    let y = (a * x ** 2 + (b * x) + c); 
+    let x1 = -b / (2 * a);
+    let y = y_quad (a, b, c, x1);
+    let new_x = round_user(x1)
+    let new_y = round_user(y)
     console.log(x1,y)
-    document.getElementById("answer2").textContent = `The Vertex is ${x1}, ${y};`
+    document.getElementById("answer2").textContent = `The Vertex is ${new_x}, ${new_y};`
 }

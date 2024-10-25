@@ -24,3 +24,28 @@ button, input {
 .short_number {
     width: 50px;
 }
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    background: linear-gradient(to right, #666363 0, white 10%, #666363 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 3s linear infinite;
+    background-color: green;
+    border: 1px;
+  }
+  
+  @keyframes  animate {
+    0% {
+      background-position: 0;
+    }
+    50% {
+      background-position: 470px;
+    }
+    100% {
+      background-position: 1300px;
+    }
+  }
